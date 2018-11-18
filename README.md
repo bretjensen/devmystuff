@@ -1,2 +1,2 @@
 # devmystuff
-Test repo that contains infrastructure and source code within it.
+Test repo that contains infrastructure taken out and source code within it.

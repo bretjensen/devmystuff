@@ -6,7 +6,7 @@ variable "terraform_role_arn" {
 
 variable "project" {
   type = "string"
-  description = "The name of the project"
+  description = "The name of the project with a change"
 }
 
 variable "environment" {
