@@ -3,8 +3,20 @@
 # Publishes the open sourceable code to github
 # Author: brett
 
-currdir=$(basename $(pwd))
-if [[ "$currdir" != "devmystuff2" ]]; then
-    echo "Not in correct directory to run script"
-    exit 1
-fi
+SC_FILE="./.git/info/sparse-checkout"
+git config core.sparsecheckout true
+
+cp ./sparse-checkout $SC_FILE
+git read-tree -mu HEAD
+
+rsync -av --progress . ../publishmystuff --exclude .git
+
+rm ../publishmystuff/snapshot-to-github
+rm ../publishmystuff/sparse-checkout
+
+echo "*" > $SC_FILE
+git config core.sparsecheckout true
+git read-tree --reset -u HEAD
+
+rm $SC_FILE
+git config core.sparsecheckout false
