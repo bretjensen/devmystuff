@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Publishes the open sourceable code to github
+# Author: brett
+
+currdir=$(basename $(pwd))
+if [[ "$currdir" != "devmystuff2" ]]; then
+    echo "Not in correct directory to run script"
+    exit 1
+fi
